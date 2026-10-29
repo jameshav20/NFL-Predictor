@@ -1,5 +1,5 @@
 # Textbook (copyrighted, not part of the project)
-*.pdf
+Hands-On Machine Learning*.pdf
 
 # Downloaded nflverse data (re-download with predict_week.py or the notebook)
 data/raw/
@@ -9,6 +9,10 @@ data/raw/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# R session files
+.Rhistory
+.RData
 
 # Editor and OS files
 .vscode/
