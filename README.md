@@ -1,8 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
 # NFL Predictor v1
 
@@ -23,7 +18,7 @@ inputs and as benchmarks.
 The final model is a soft-voting ensemble of tuned logistic regression,
 gradient boosting and Extra-Trees. On picks it is statistically tied
 with a well-tuned Elo rating, and its probabilities are slightly better
-calibrated. The full write-up is in the project report.
+calibrated. The full write-up is in [docs/report.pdf](docs/report.pdf).
 
 ## Approach
 
