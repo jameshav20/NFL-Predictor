@@ -1,0 +1,19 @@
+logistic {'accuracy': np.float64(0.6536), 'accuracy_std': np.float64(0.0205), 'log_loss': np.float64(0.625), 'log_loss_std': np.float64(0.0145), 'brier': np.float64(0.2177), 'brier_std': np.float64(0.0065), 'seconds': 1.2}
+hist_gb {'accuracy': np.float64(0.6469), 'accuracy_std': np.float64(0.0204), 'log_loss': np.float64(0.6301), 'log_loss_std': np.float64(0.0135), 'brier': np.float64(0.22), 'brier_std': np.float64(0.006), 'seconds': 3.3}
+extra_trees {'accuracy': np.float64(0.6413), 'accuracy_std': np.float64(0.019), 'log_loss': np.float64(0.6267), 'log_loss_std': np.float64(0.0143), 'brier': np.float64(0.2189), 'brier_std': np.float64(0.0063), 'seconds': 16.7}
+soft_vote {'accuracy': np.float64(0.6547), 'accuracy_std': np.float64(0.021), 'log_loss': np.float64(0.6245), 'log_loss_std': np.float64(0.0134), 'brier': np.float64(0.2177), 'brier_std': np.float64(0.006), 'seconds': 19.8}
+
+Selected by rule: soft_vote
+
+HOLDOUT 2023-2025
+           model   n  accuracy  acc_ci_low  acc_ci_high  log_loss  brier
+final_soft_vote 854    0.6323      0.5999       0.6647    0.6288 0.2197
+    always_home 854    0.5492      0.5157       0.5826    0.6888 0.2478
+       elo_only 854    0.6405      0.6083       0.6728    0.6351 0.2221
+            mean  count
+season                 
+2023    0.607018    285
+2024    0.666667    285
+2025    0.623239    284
+
+LIVE 2026 to date: {'n': 106, 'accuracy': np.float64(0.5755), 'acc_ci_low': np.float64(0.4798), 'acc_ci_high': np.float64(0.6711), 'log_loss': 0.6634, 'brier': 0.2367}

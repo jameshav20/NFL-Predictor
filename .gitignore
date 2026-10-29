@@ -1,0 +1,17 @@
+# Textbook (copyrighted, not part of the project)
+*.pdf
+
+# Downloaded nflverse data (re-download with predict_week.py or the notebook)
+data/raw/
+
+# Python and Jupyter
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editor and OS files
+.vscode/
+Thumbs.db
+desktop.ini
+.DS_Store
