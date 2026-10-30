@@ -1,11 +1,8 @@
-
 # NFL Predictor v1
 
 James Havrilla III
 
-I built this model to pick the straight-up winner of NFL games using
-only team and game data. Betting lines are left out on purpose, both as
-inputs and as benchmarks.
+I built this model to pick the straight-up winner of NFL games using only team and game data. Betting lines are left out on purpose, both as inputs and as benchmarks.
 
 ## Results
 
@@ -15,22 +12,13 @@ inputs and as benchmarks.
 | Plain Elo rating                  | 64.1%    | 60.8% to 67.3% | 0.635    |
 | Always pick the home team         | 54.9%    | 51.6% to 58.3% | 0.689    |
 
-The final model is a soft-voting ensemble of tuned logistic regression,
-gradient boosting and Extra-Trees. On picks it is statistically tied
-with a well-tuned Elo rating, and its probabilities are slightly better
-calibrated. The full write-up is in [docs/report.pdf](docs/report.pdf).
+The final model is a soft-voting ensemble of tuned logistic regression, gradient boosting and Extra-Trees. On picks it is statistically tied with a well-tuned Elo rating, and its probabilities are slightly better calibrated. The full write-up is in [docs/report.pdf](docs/report.pdf).
 
 ## Approach
 
-The data is nflverse's schedules and weekly team stats from 1999 to
-2026. Each game gets 20 home-minus-away features built only from games
-played before kickoff: Elo ratings, rolling EPA and scoring form, rest,
-division games, neutral sites and quarterback changes.
+The data is nflverse's schedules and weekly team stats from 1999 to 2026. Each game gets 20 home-minus-away features built only from games played before kickoff: Elo ratings, rolling EPA and scoring form, rest, division games, neutral sites and quarterback changes.
 
-I validated with walk-forward cross-validation by season, training on
-every earlier season and testing on the next, and held out 2023 to 2025
-to score once at the end. Tuning was a randomized search over model and
-feature settings together, selected on log loss.
+I validated with walk-forward cross-validation by season, training on every earlier season and testing on the next, and held out 2023 to 2025 to score once at the end. Tuning was a randomized search over model and feature settings together, selected on log loss.
 
 ## Setup
 
@@ -45,13 +33,12 @@ python predict_week.py            # refresh data, retrain, pick the next week, s
 python predict_week.py --week 10  # pick a specific week
 ```
 
-Picks are saved to `predictions/picks_<season>_wk<NN>.csv`. Every pick
-is also kept in `predictions/log.csv` and scored once the game is final.
+Picks are saved to `predictions/picks_<season>_wk<NN>.csv`. Every pick is also kept in `predictions/log.csv` and scored once the game is final.
 
 ## Project layout
 
 | Path | Contents |
-|----|----|
+|------------------------------------|------------------------------------|
 | `NFL_Predictor_v1.ipynb` | Walkthrough of all eight steps |
 | `nflv1/data.py` | Downloads and loads the nflverse data and removes betting columns |
 | `nflv1/features.py` | Pre-kickoff features as a scikit-learn transformer |
@@ -73,16 +60,9 @@ python train_final.py  # about 5 minutes
 
 ## Next steps
 
-- Add injury reports and weather, which the current features don't
-  capture. Injury data would need to be timestamped before kickoff to
-  avoid leakage.
-- Rate quarterbacks individually instead of only flagging a change at
-  the position.
-- Let home-field advantage vary over time instead of treating it as a
-  single number, since it has dropped noticeably since 2019.
-- Compare against more baselines and report calibration plots alongside
-  accuracy.
-- Reduce the overlap between the EPA features with PCA or stronger
-  regularization.
-- Track the 2026 season week by week and re-evaluate the model at the
-  end of the season.
+-   Add injury reports and weather, which the current features don't capture. Injury data would need to be timestamped before kickoff to avoid leakage.
+-   Rate quarterbacks individually instead of only flagging a change at the position.
+-   Let home-field advantage vary over time instead of treating it as a single number, since it has dropped noticeably since 2019.
+-   Compare against more baselines and report calibration plots alongside accuracy.
+-   Reduce the overlap between the EPA features with PCA or stronger regularization.
+-   Track the 2026 season week by week and re-evaluate the model at the end of the season.
