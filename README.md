@@ -70,3 +70,19 @@ is also kept in `predictions/log.csv` and scored once the game is final.
 python tune.py         # about 15 minutes
 python train_final.py  # about 5 minutes
 ```
+
+## Next steps
+
+- Add injury reports and weather, which the current features don't
+  capture. Injury data would need to be timestamped before kickoff to
+  avoid leakage.
+- Rate quarterbacks individually instead of only flagging a change at
+  the position.
+- Let home-field advantage vary over time instead of treating it as a
+  single number, since it has dropped noticeably since 2019.
+- Compare against more baselines and report calibration plots alongside
+  accuracy.
+- Reduce the overlap between the EPA features with PCA or stronger
+  regularization.
+- Track the 2026 season week by week and re-evaluate the model at the
+  end of the season.
